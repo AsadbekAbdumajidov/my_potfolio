@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/core/constants/constants.dart';
-import 'package:my_portfolio/data/models/Recommendation.dart';
-import 'package:my_portfolio/presentation/view/home/widget/recommendation_card.dart';
+import 'package:my_portfolio/data/models/education_model.dart';
+import 'package:my_portfolio/presentation/view/home/widget/education_cards.dart';
 
-class Recommendations extends StatelessWidget {
-  const Recommendations({
+class Educations extends StatelessWidget {
+  const Educations({
     Key? key,
   }) : super(key: key);
 
@@ -15,7 +15,7 @@ class Recommendations extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Recommendations",
+          Text("My educations",
               style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: defaultPadding),
           
@@ -23,11 +23,11 @@ class Recommendations extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: List.generate(
-                demoRecommendations.length,
+                demoEducationsModels.length,
                 (index) => Padding(
                   padding: const EdgeInsets.only(right: defaultPadding),
-                  child: RecommendationCard(
-                    recommendation: demoRecommendations[index],
+                  child: EducationCard(
+                    educationModel: demoEducationsModels[index],
                   ),
                 ),
               ),

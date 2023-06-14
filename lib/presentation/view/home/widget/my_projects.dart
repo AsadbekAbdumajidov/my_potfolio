@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/core/constants/constants.dart';
-import 'package:my_portfolio/data/models/Project.dart';
+import 'package:my_portfolio/data/models/project_model.dart';
 import 'package:my_portfolio/presentation/components/responsiveness.dart';
 
 import 'project_card.dart';
@@ -16,7 +16,7 @@ class MyProjects extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "My Projects",
+          "My projects",
           style: Theme.of(context).textTheme.titleLarge,
         ),
         const SizedBox(height: defaultPadding),
@@ -27,7 +27,7 @@ class MyProjects extends StatelessWidget {
           ),
           mobileLarge: ProjectsGridView(crossAxisCount: 2),
           tablet: ProjectsGridView(childAspectRatio: 0.9),
-          desktop: ProjectsGridView(),
+          desktop: ProjectsGridView(childAspectRatio: 1)
         )
       ],
     );

@@ -1,34 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/core/constants/constants.dart';
 import 'package:my_portfolio/core/themes/app_colors.dart';
-import 'package:my_portfolio/data/models/Recommendation.dart';
+import 'package:my_portfolio/data/models/education_model.dart';
 
 
-class RecommendationCard extends StatelessWidget {
-  const RecommendationCard({
+class EducationCard extends StatelessWidget {
+  const EducationCard({
     Key? key,
-    required this.recommendation,
+    required this.educationModel,
   }) : super(key: key);
 
-  final Recommendation recommendation;
+  final EducationsModel educationModel;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 400,
+      height: 200,
       padding: const EdgeInsets.all(defaultPadding),
       color: AppColors.secondaryColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            recommendation.name!,
-            style: Theme.of(context).textTheme.labelSmall,
+            educationModel.name!,
+            style: Theme.of(context).textTheme.titleSmall,
           ),
-          Text(recommendation.source!),
+          Text(educationModel.source!),
           const SizedBox(height: defaultPadding),
           Text(
-            recommendation.text!,
+            educationModel.text!,
             maxLines: 4,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(height: 1.5),

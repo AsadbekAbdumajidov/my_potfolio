@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/core/constants/constants.dart';
 import 'package:my_portfolio/core/themes/app_colors.dart';
-import 'package:my_portfolio/data/models/Project.dart';
+import 'package:my_portfolio/data/models/project_model.dart';
 import 'package:my_portfolio/presentation/components/responsiveness.dart';
 
 class ProjectCard extends StatelessWidget {

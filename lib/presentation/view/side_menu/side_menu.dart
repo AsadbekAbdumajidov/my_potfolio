@@ -27,6 +27,7 @@ class SideMenu extends StatelessWidget {
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(defaultPadding),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const AreaInfoText(
                       title: "Residence",
