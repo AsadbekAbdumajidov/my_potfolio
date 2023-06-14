@@ -4,7 +4,6 @@ import 'package:my_portfolio/core/themes/app_colors.dart';
 import 'package:my_portfolio/data/models/Project.dart';
 import 'package:my_portfolio/presentation/components/responsiveness.dart';
 
-
 class ProjectCard extends StatelessWidget {
   const ProjectCard({
     Key? key,
@@ -27,6 +26,7 @@ class ProjectCard extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.titleSmall,
           ),
+          const Divider(),
           const Spacer(),
           Text(
             project.description!,
@@ -39,9 +39,11 @@ class ProjectCard extends StatelessWidget {
             onPressed: () {},
             child: const Text(
               "Read More >>",
-              style: TextStyle(color: AppColors.primaryColor,
+              style: TextStyle(
+                color: AppColors.primaryColor,
+              ),
             ),
-          ),)
+          )
         ],
       ),
     );

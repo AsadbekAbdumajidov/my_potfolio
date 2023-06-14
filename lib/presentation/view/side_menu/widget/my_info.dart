@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/core/themes/app_colors.dart';
 import 'package:my_portfolio/core/themes/app_images.dart';
 
 class MyInfo extends StatelessWidget {
@@ -20,18 +21,14 @@ class MyInfo extends StatelessWidget {
               backgroundImage: AssetImage(AppImages.personalInfo),
             ),
             const Spacer(),
-            Text(
-              "Asadbek Abdumajidov",
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-            const Text(
-              "Flutter Developer & Founder of \n The Flutter Way",
+            Text("Asadbek Abdumajidov",
+                style: Theme.of(context).textTheme.titleSmall),
+             Text(
+              "Flutter Developer at Samuraidev.uz",
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.w200,
-                height: 1.5,
-              ),
-            ),
+              maxLines: 2,
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.bodyTextColor)
+                       ),
             const Spacer(flex: 2),
           ],
         ),

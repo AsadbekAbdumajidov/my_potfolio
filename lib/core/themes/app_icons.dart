@@ -8,4 +8,5 @@ class AppIcons {
   static const String iconLinkedin = 'assets/icons/ic_linkedin.svg';
   static const String iconDownload = 'assets/icons/ic_download.svg';
   static const String iconGithub = 'assets/icons/ic_github.svg';
+  static const String iconTg = 'assets/icons/ic_tg.svg';
 }

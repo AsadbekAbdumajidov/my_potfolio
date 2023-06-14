@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/core/constants/constants.dart';
 import 'package:my_portfolio/data/models/Recommendation.dart';
-import 'package:my_portfolio/presentation/view/home/components/recommendation_card.dart';
-
+import 'package:my_portfolio/presentation/view/home/widget/recommendation_card.dart';
 
 class Recommendations extends StatelessWidget {
   const Recommendations({
@@ -16,11 +15,10 @@ class Recommendations extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Recommendations",
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
+          Text("Recommendations",
+              style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: defaultPadding),
+          
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -40,4 +38,3 @@ class Recommendations extends StatelessWidget {
     );
   }
 }
-

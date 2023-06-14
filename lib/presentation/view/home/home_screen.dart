@@ -1,22 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/presentation/view/main/main_screen.dart';
-
-import 'components/heighlights.dart';
-import 'components/home_banner.dart';
-import 'components/my_projects.dart';
-import 'components/recommendations.dart';
+import 'package:my_portfolio/core/constants/constants.dart';
+import 'package:my_portfolio/presentation/layout.dart';
+import 'widget/heighlights.dart';
+import 'widget/home_banner.dart';
+import 'widget/my_projects.dart';
+import 'widget/recommendations.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MainScreen(
+    return  const LayoutScreen(
       children: [
         HomeBanner(),
-        HighLightsInfo(),
-        MyProjects(),
-        Recommendations(),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: defaultPadding),
+          child: Column(
+            children: [
+              HighLightsInfo(),
+              MyProjects(),
+              Recommendations(),
+            ],
+          ),
+        )
       ],
     );
   }

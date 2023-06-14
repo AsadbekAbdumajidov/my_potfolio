@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_portfolio/core/constants/constants.dart';
+import 'package:my_portfolio/core/themes/app_colors.dart';
+import 'package:my_portfolio/core/themes/app_icons.dart';
+import 'package:my_portfolio/presentation/view/side_menu/widget/social_networks.dart';
 
-import 'area_info_text.dart';
-import 'coding.dart';
-import 'knowledges.dart';
-import 'my_info.dart';
-import 'skills.dart';
+import 'widget/area_info_text.dart';
+import 'widget/coding.dart';
+import 'widget/knowledges.dart';
+import 'widget/my_info.dart';
+import 'widget/skills.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -48,39 +51,18 @@ class SideMenu extends StatelessWidget {
                       child: FittedBox(
                         child: Row(
                           children: [
-                            Text(
-                              "DOWNLOAD CV",
-                              style: TextStyle(
-                                color: Theme.of(context)
+                            Text("DOWNLOAD CV",
+                                style: Theme.of(context)
                                     .textTheme
-                                    .bodySmall!
-                                    .color,
-                              ),
-                            ),
+                                    .titleSmall!
+                                    .copyWith(color: AppColors.bodyTextColor)),
                             const SizedBox(width: defaultPadding / 2),
-                            SvgPicture.asset("assets/icons/download.svg")
+                            SvgPicture.asset(AppIcons.iconDownload)
                           ],
                         ),
                       ),
                     ),
-                    Container(
-                      margin: const EdgeInsets.only(top: defaultPadding),
-                      color: const Color(0xFF24242E),
-                      child: Row(
-                        children: [
-                          const Spacer(),
-                          IconButton(
-                            onPressed: () {},
-                            icon: SvgPicture.asset("assets/icons/linkedin.svg"),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: SvgPicture.asset("assets/icons/github.svg"),
-                          ),
-                          const Spacer(),
-                        ],
-                      ),
-                    ),
+                    const SocialNetworks()
                   ],
                 ),
               ),
