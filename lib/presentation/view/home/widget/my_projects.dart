@@ -25,7 +25,7 @@ class MyProjects extends StatelessWidget {
             crossAxisCount: 1,
             childAspectRatio: 1.7,
           ),
-          mobileLarge: ProjectsGridView(crossAxisCount: 2),
+          mobileLarge: ProjectsGridView(childAspectRatio: 1,crossAxisCount: 2,),
           tablet: ProjectsGridView(childAspectRatio: 0.9),
           desktop: ProjectsGridView(childAspectRatio: 1)
         )
@@ -50,6 +50,7 @@ class ProjectsGridView extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: demoProjects.length,
+      padding: const EdgeInsets.all(0),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         childAspectRatio: childAspectRatio,

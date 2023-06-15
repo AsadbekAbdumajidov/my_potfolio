@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_portfolio/core/constants/constants.dart';
@@ -18,16 +20,24 @@ class LayoutScreen extends StatelessWidget {
     SizeConfig().init(context);
     return Scaffold(
       // We hide the appbar on desktop
+      extendBodyBehindAppBar: true,
       appBar: Responsive.isDesktop(context)
           ? null
           : AppBar(
-              backgroundColor: AppColors.bgColor,
+              flexibleSpace: ClipRect(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 15, sigmaY: 20),
+                  child: Container(
+                    color: Colors.transparent,
+                  ),
+                ),
+              ),
+              elevation: 20,
+              backgroundColor: AppColors.bgColor.withOpacity(.4),
               leading: Builder(
                 builder: (context) => IconButton(
                   splashRadius: 1,
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  },
+                  onPressed: () => Scaffold.of(context).openDrawer(),
                   icon: SvgPicture.asset(AppIcons.iconMenu,
                       colorFilter: const ColorFilter.mode(
                           AppColors.whiteColor, BlendMode.srcIn)),
@@ -69,11 +79,15 @@ class LayoutScreen extends StatelessWidget {
               Expanded(
                 flex: 7,
                 child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      ...children,
-                      // our footer
-                    ],
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                        top: Responsive.isDesktop(context) ? 0 : Responsive.isMobile(context) || Responsive.isTablet(context) ? he(53) : he(120)),
+                    child: Column(
+                      children: [
+                        ...children,
+                        // our footer
+                      ],
+                    ),
                   ),
                 ),
               ),

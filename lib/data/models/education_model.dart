@@ -9,7 +9,7 @@ final List<EducationsModel> demoEducationsModels = [
     name: "Najot Ta'lim - Foundation",
     source: "June 2021 - October 2021",
     text:
-        "In this course I learned c and phyton programming languages. \nActivities and societies: Leetcode problems, algorithms and real projects.",
+        "In this course I learned C and Phyton programming languages. \nActivities and societies: Leetcode problems, algorithms and real projects.",
   ),
   EducationsModel(
     name: "Najot Ta'lim - flutter Bootcamp",
