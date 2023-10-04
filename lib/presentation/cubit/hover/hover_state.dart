@@ -5,9 +5,7 @@ class HoverState extends Equatable {
 
   final bool hoverProject;
 
-  HoverState copyWith({
-    bool? hoverProject,
-  }) {
+  HoverState copyWith({bool? hoverProject}) {
     return HoverState(
       hoverProject: hoverProject ?? this.hoverProject,
     );

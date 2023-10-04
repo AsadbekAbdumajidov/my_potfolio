@@ -5,7 +5,6 @@ import 'package:my_portfolio/core/themes/app_colors.dart';
 import 'package:my_portfolio/core/themes/app_images.dart';
 import 'package:my_portfolio/presentation/components/responsiveness.dart';
 
-
 class HomeBanner extends StatelessWidget {
   const HomeBanner({
     Key? key,
@@ -22,7 +21,7 @@ class HomeBanner extends StatelessWidget {
             AppImages.imgBg,
             fit: BoxFit.cover,
           ),
-          Container(color: AppColors.blackColor.withOpacity(0.66)),
+          Container(color: AppColors.blackColor.withOpacity(0.5)),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Column(
@@ -32,14 +31,14 @@ class HomeBanner extends StatelessWidget {
                 Text(
                   "Discover my Amazing \nArt Space!",
                   style: Responsive.isDesktop(context)
-                      ? Theme.of(context).textTheme.headlineSmall!.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          )
-                      : Theme.of(context).textTheme.headlineSmall!.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
+                      ? Theme.of(context)
+                          .textTheme
+                          .headlineSmall!
+                          .copyWith(fontWeight: FontWeight.bold)
+                      : Theme.of(context)
+                          .textTheme
+                          .headlineSmall!
+                          .copyWith(fontWeight: FontWeight.normal),
                 ),
                 if (Responsive.isMobileLarge(context))
                   const SizedBox(height: defaultPadding / 2),
@@ -49,11 +48,10 @@ class HomeBanner extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: defaultPadding * 2,
-                          vertical: defaultPadding),
-                      backgroundColor: AppColors.primaryColor
-                    ),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: defaultPadding * 2,
+                            vertical: defaultPadding),
+                        backgroundColor: AppColors.primaryColor),
                     child: const Text(
                       "EXPLORE NOW",
                       style: TextStyle(color: AppColors.blackColor),
@@ -124,9 +122,7 @@ class AnimatedText extends StatelessWidget {
 }
 
 class FlutterCodedText extends StatelessWidget {
-  const FlutterCodedText({
-    Key? key,
-  }) : super(key: key);
+  const FlutterCodedText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

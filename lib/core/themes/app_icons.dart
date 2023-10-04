@@ -9,4 +9,6 @@ class AppIcons {
   static const String iconDownload = 'assets/icons/ic_download.svg';
   static const String iconGithub = 'assets/icons/ic_github.svg';
   static const String iconTg = 'assets/icons/ic_tg.svg';
+  static const String iconArrowLeft = 'assets/icons/ic_arrow_left.svg';
+  static const String iconArrowRight = 'assets/icons/ic_arrow_right.svg';
 }

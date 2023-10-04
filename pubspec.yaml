@@ -10,17 +10,35 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_fonts: ^5.0.0
+  google_fonts: ^6.1.0
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.7
+  # animation text
   animated_text_kit: ^4.2.2
-  flutter_bloc: ^8.1.3
+  # state mangment
+  flutter_bloc: ^8.1.1
   equatable: ^2.0.5
+  get_it: ^7.2.0
+  # for cached image
+  cached_network_image: ^3.3.0
+  # use corusel slider
+  infinite_carousel: ^1.0.3
+  carousel_slider: ^4.2.1
+  # use json decode
+  freezed: ^2.4.3
+  json_serializable: ^6.5.4
+  json_annotation: ^4.8.1
+  dartz: ^0.10.1
+  freezed_annotation: ^2.4.1
+
    
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  build_runner: ^2.4.5
+  retrofit_generator: any
+  
   
 flutter:
   uses-material-design: true
@@ -28,18 +46,3 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
-
-    
-  #   - images/a_dot_ham.jpeg
-
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700

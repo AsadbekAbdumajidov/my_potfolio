@@ -8,6 +8,8 @@ class Responsive extends StatelessWidget {
   final Widget mobile;
   final Widget? mobileLarge;
   final Widget? tablet;
+  final Widget? mobileSizeMedium;
+  final Widget? desktopSizeSmall;
   final Widget desktop;
 
   const Responsive({
@@ -15,7 +17,7 @@ class Responsive extends StatelessWidget {
     required this.mobile,
     this.tablet,
     required this.desktop,
-    this.mobileLarge,
+    this.mobileLarge, this.mobileSizeMedium, this.desktopSizeSmall,
   }) : super(key: key);
 
   static bool isMobile(BuildContext context) =>

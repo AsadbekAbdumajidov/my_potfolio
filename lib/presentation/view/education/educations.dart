@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/core/constants/constants.dart';
 import 'package:my_portfolio/data/models/education_model.dart';
-import 'package:my_portfolio/presentation/view/home/widget/education_cards.dart';
+import 'package:my_portfolio/presentation/view/education/widget/education_cards.dart';
 
 class Educations extends StatelessWidget {
-  const Educations({
-    Key? key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,10 +11,8 @@ class Educations extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("My educations",
-              style: Theme.of(context).textTheme.titleLarge),
+          Text("My educations", style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: defaultPadding),
-          
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -27,8 +21,7 @@ class Educations extends StatelessWidget {
                 (index) => Padding(
                   padding: const EdgeInsets.only(right: defaultPadding),
                   child: EducationCard(
-                    educationModel: demoEducationsModels[index],
-                  ),
+                      educationModel: demoEducationsModels[index]),
                 ),
               ),
             ),

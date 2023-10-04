@@ -18,7 +18,10 @@ class EducationCard extends StatelessWidget {
       width: 400,
       height: 200,
       padding: const EdgeInsets.all(defaultPadding),
-      color: AppColors.secondaryColor,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(6),
+        color: AppColors.secondaryColor,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -26,10 +29,11 @@ class EducationCard extends StatelessWidget {
             educationModel.name!,
             style: Theme.of(context).textTheme.titleSmall,
           ),
-          Text(educationModel.source!),
+          Text(educationModel.source ?? ""),
+          const Divider(),
           const SizedBox(height: defaultPadding),
           Text(
-            educationModel.text!,
+            educationModel.text ?? "",
             maxLines: 4,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(height: 1.5),
