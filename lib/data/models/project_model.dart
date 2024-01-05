@@ -1,38 +1,72 @@
-class Project {
-  final String? title, description;
+import 'package:my_portfolio/core/themes/app_images.dart';
 
-  Project({this.title, this.description});
+class Project {
+  final String? title, description, img,url;
+
+  Project({this.title, this.description, this.img, this.url});
 }
 
 List<Project> demoProjects = [
   Project(
-    title: "Responsive Admin Panel or Dashboard - Flutter UI",
+    img: AppImages.imgCaptureMeClient,
+    url: "https://play.google.com/store/apps/details?id=com.samuraidev.captureme",
+    title: "CaptureMe (client app) you can hire photographer",
     description:
-        "On Flutter V2.* web officially supported on a stable branch. Today I share an Admin panel or you can call it dashboard UI build with flutter. Now you can build your app dashboard using flutter. ",
+        """You can find and hire photographers closest to your location with this app. 
+The app has features like chat, push notification, map and more.""",
   ),
   Project(
-    title: "E-Commerce Complate App - Flutter UI",
+    img: AppImages.imgCaptureMePhotgraper,
+    url: "https://play.google.com/store/apps/details?id=uz.samuraidev.capturemecreator",
+    title: "CaptureMe (photographer app) you can work as photographer",
     description:
-        "In the first part of our complete e-commerce app, we show you how you can create a nice clean onboarding screen for your e-commerce app that can run both Andriod and iOS devices because it builds with flutter. ",
+        """You can build a photography business and earn money on this app. 
+The application has features such as chat, map, push notification and more.""",
   ),
   Project(
-    title: "Outlook Email App Redesign - Flutter Fully Responsive Design UI",
+    img: AppImages.imgBlinq,
+    url: "https://apps.apple.com/uz/app/blinq-app/id6446248161",
+    title: "BLINQ app - for an international company",
     description:
-        "We redesign the outlook app also make it responsive so that you can run it everywhere on your phone, tab, or web. In this flutter responsive video, we will show you the real power of flutter. ",
+        """The app is integrated with the BLINQ bluetooth device. Through the application, the user collects information about the accident that happened to him and can call an ambulance.
+It has the following functions: 
+emergency call, can mark the damaged parts of the car, upload data through sound, image and text and spare parts can be ordered, etc.""",
   ),
   Project(
-    title: "Chat/Messaging App Light and Dark Theme - Flutter UI",
+    img:  AppImages.imgSpa,
+    title: "Luxe Spa admin - for Luxe spa website admin",
     description:
-        "Today we gonna build messing/chat app #ui using #flutter that runs both Android and iOS devices also has a dark and light theme. We create in total 4 screens all of that support both Dark Theme and Light Theme. ",
+        "It has the ability to open a chat, profile and update it, register using a specially given login and password, and use its features.",
   ),
   Project(
-    title: "Welcome page, Login Page and Sign up page - Flutter UI",
+    img:  AppImages.imgMyJudogi,
+    url: "https://samurainet.tilda.ws/myjudogi",
+    title: "My judogi app - for International Judo Federation",
     description:
-        "In the first part of our complete e-commerce app, we show you how you can create a nice clean onboarding screen for your e-commerce app that can run both Andriod and iOS devices because it builds with flutter. ",
+        """This mobile application can be used by kimono manager and athlete. 
+Kimono Manager in the app: Can use NFC, get information about competitions and athletes registered in them, and check athlete using NFC.
+Athlete: Can use NFC, He can add kimonos, register for competitions, get information about competitions and receive notifications.""",
   ),
   Project(
-    title: "Covid-19 App - Flutter UI",
+    img:  AppImages.imgUzbEsp,
+    url:  "https://play.google.com/store/apps/details?id=com.miraziz.uzbesp",
+
+    title: "UZ-ESP translater",
     description:
-        "We redesign the outlook app also make it responsive so that you can run it everywhere on your phone, tab, or web. In this flutter responsive video, we will show you the real power of flutter. ",
+        """In this program, you can use the Spanish language independently and, importantly, without the Internet, in a design that is convenient for you.""",
+  ),
+  Project(
+    img:  AppImages.clientUnihostel,
+    url:  "https://tma.uz/2023/07/31/unihostel-platformasiga-shaxsiy-ma-lumotlarni-o-zgartirish-bo-limi-qo-shildi-ushbu-bo-limda-siz-telefon-raqam-yashash-manzili-guruh-kurs-va-boshqa-o-zgarishlarni-amalga-oshirishingiz-mumkin-ma/",
+    title: "Uni hostel Website - for TMA",
+    description:
+        """I worked on the problems and updates that arose in this project.
+More than 4,000 students of the Tashkent Medical Academy are using this platform to book accommodation and make payments.""",
+  ),
+  Project(
+    img:  AppImages.imgAdminUnhostel,
+    title: "Admin Uni hostel Website - for TMA",
+    description:
+        """More than 20 employees are using the admin website to track requests. Admin website for monitoring of the online registration platform for students of the Tashkent Medical Academy to live in the dormitory of the academy. I am still working to provide technical support for future changes and issues.""",
   ),
 ];

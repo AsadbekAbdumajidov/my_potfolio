@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_portfolio/core/constants/constants.dart';
 import 'package:my_portfolio/core/themes/app_colors.dart';
 import 'package:my_portfolio/core/utils/size_konfig.dart';
+import 'package:my_portfolio/core/widget/flush_bars.dart';
 import 'package:my_portfolio/core/widget/network_image.dart';
 import 'package:my_portfolio/data/models/project_model.dart';
 import 'package:my_portfolio/presentation/components/responsiveness.dart';
 import 'package:my_portfolio/presentation/cubit/hover/hover_cubit.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProjectCard extends StatefulWidget {
   const ProjectCard({Key? key, required this.project}) : super(key: key);
@@ -18,11 +20,10 @@ class ProjectCard extends StatefulWidget {
 }
 
 class _ProjectCardState extends State<ProjectCard> {
-   @override
+  @override
   Widget build(BuildContext context) {
     return Container(
-      padding:
-         const EdgeInsets.all( defaultPadding),
+      padding: const EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
         color: AppColors.secondaryColor,
@@ -31,7 +32,7 @@ class _ProjectCardState extends State<ProjectCard> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            widget.project.title!,
+            widget.project.title ?? "",
             maxLines: Responsive.isMobile(context) ? 2 : 1,
             overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.titleSmall,
@@ -39,16 +40,16 @@ class _ProjectCardState extends State<ProjectCard> {
           const Divider(),
           Expanded(
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(3),
-              child: NetworkImageWidget(
+              borderRadius: BorderRadius.circular(6),
+              child: AssetImageWidget2(
                   height: Responsive.isTablet(context) ? he(120) : he(200),
-                  img: img),
+                  img: widget.project.img ?? ""),
             ),
           ),
           SizedBox(height: he(10)),
           Text(
             widget.project.description!,
-            maxLines: Responsive.isMobileLarge(context) ? 3 : 4,
+            maxLines: Responsive.isMobileLarge(context) ? 4 : 5,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(height: 1.5),
           ),
@@ -68,7 +69,14 @@ class _ProjectCardState extends State<ProjectCard> {
                   ),
                   onHover: (value) =>
                       context.read<HoverCubit>().hoverProject(value),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (widget.project.url != null) {
+                      launchUrl(Uri.parse(widget.project.url ?? ""));
+                    } else {
+                      showMessage(context,
+                          "Some projects do not have complete information.");
+                    }
+                  },
                   child: Text(
                     "See more >>",
                     style: TextStyle(

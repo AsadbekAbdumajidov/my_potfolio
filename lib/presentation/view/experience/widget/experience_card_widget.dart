@@ -3,6 +3,7 @@ import 'package:my_portfolio/core/constants/constants.dart';
 import 'package:my_portfolio/core/themes/app_colors.dart';
 import 'package:my_portfolio/core/utils/size_konfig.dart';
 import 'package:my_portfolio/core/widget/network_image.dart';
+import 'package:my_portfolio/presentation/components/responsiveness.dart';
 
 class ExperienceCardWidget extends StatelessWidget {
   const ExperienceCardWidget(
@@ -20,39 +21,65 @@ class ExperienceCardWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
-        width: wi(400),
-        padding: const EdgeInsets.all(defaultPadding),
+        width: 650,
+        padding:
+            EdgeInsets.all(Responsive.isMobile(context) ? 14 : defaultPadding),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           color: AppColors.secondaryColor,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text(
-              name,
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-            Text(date),
-            const Divider(),
-            const SizedBox(height: defaultPadding),
-            Row(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(3),
-                  child: NetworkImageWidget(
-                      height: he(100), width: he(100), img: img),
-                ),
-                SizedBox(width: wi(4)),
-                Expanded(
-                    child: Text(
-                  description,
-                  maxLines: 5,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(height: 1.5),
-                )),
+                Text(name, style: Theme.of(context).textTheme.titleSmall),
+                Text(date),
+                const Divider(),
               ],
             ),
+            // Responsive.isMobile(context)
+            //     ? const SizedBox.shrink()
+            //     : const SizedBox(height: defaultPadding),
+            Responsive.isMobile(context)
+                ? Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(6),
+                          child: AssetImageWidget2(
+                              height: 120, width: 120, img: img),
+                        ),
+                        Text(
+                          description,
+                          maxLines: 8,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(height: 1.5),
+                        )
+                      ],
+                    ),
+                  )
+                : Row(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(6),
+                        child: AssetImageWidget2(
+                            height: 120, width: 120, img: img),
+                      ),
+                      SizedBox(width: wi(4)),
+                      Expanded(
+                          child: Text(
+                        description,
+                        maxLines: 8,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(height: 1.5),
+                      )),
+                    ],
+                  ),
           ],
         ),
       ),

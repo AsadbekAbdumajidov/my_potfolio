@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/core/constants/constants.dart';
 import 'package:my_portfolio/presentation/layout.dart';
 import 'package:my_portfolio/presentation/view/education/educations.dart';
 import 'package:my_portfolio/presentation/view/experience/experience_screen.dart';
@@ -15,18 +14,15 @@ class HomeScreen extends StatelessWidget {
     return  LayoutScreen(
       children: [
        const HomeBanner(),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: defaultPadding),
-          child: Column(
+         Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HighLightsInfo(),
+              const HighLightsInfo(),
               ExperienceScreen(),
-              MyProjects(),
-              Educations(),
+              const MyProjects(),
+              const Educations(),
             ],
           ),
-        )
       ],
     );
   }

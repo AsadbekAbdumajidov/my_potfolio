@@ -4,6 +4,7 @@ import 'package:my_portfolio/core/constants/constants.dart';
 import 'package:my_portfolio/core/themes/app_colors.dart';
 import 'package:my_portfolio/core/themes/app_images.dart';
 import 'package:my_portfolio/presentation/components/responsiveness.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeBanner extends StatelessWidget {
   const HomeBanner({
@@ -17,44 +18,48 @@ class HomeBanner extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset(
-            AppImages.imgBg,
-            fit: BoxFit.cover,
-          ),
+          Image.asset(AppImages.imgBg, fit: BoxFit.cover),
           Container(color: AppColors.blackColor.withOpacity(0.5)),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  "Discover my Amazing \nArt Space!",
-                  style: Responsive.isDesktop(context)
-                      ? Theme.of(context)
-                          .textTheme
-                          .headlineSmall!
-                          .copyWith(fontWeight: FontWeight.bold)
-                      : Theme.of(context)
-                          .textTheme
-                          .headlineSmall!
-                          .copyWith(fontWeight: FontWeight.normal),
-                ),
+                if (!Responsive.isMobileLarge(context))
+                  Text(
+                    "I have 2 years of experience \nin development",
+                    style: Responsive.isDesktop(context)
+                        ? Theme.of(context)
+                            .textTheme
+                            .headlineSmall!
+                            .copyWith(fontWeight: FontWeight.bold)
+                        : Theme.of(context)
+                            .textTheme
+                            .headlineSmall!
+                            .copyWith(fontWeight: FontWeight.normal),
+                  ),
                 if (Responsive.isMobileLarge(context))
                   const SizedBox(height: defaultPadding / 2),
                 const MyBuildAnimatedText(),
                 const SizedBox(height: defaultPadding),
                 if (!Responsive.isMobileLarge(context))
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: defaultPadding * 2,
-                            vertical: defaultPadding),
-                        backgroundColor: AppColors.primaryColor),
-                    child: const Text(
-                      "EXPLORE NOW",
-                      style: TextStyle(color: AppColors.blackColor),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: defaultPadding),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        launchUrl(Uri.parse(
+                            "https://tashkent.hh.uz/resume/c8002337ff0b1204a40039ed1f377941345372"));
+                      },
+                      style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: defaultPadding * 2,
+                              vertical: defaultPadding),
+                          backgroundColor: AppColors.primaryColor),
+                      child: const Text(
+                        "EXPLORE NOW",
+                        style: TextStyle(color: AppColors.blackColor),
+                      ),
                     ),
                   ),
               ],
@@ -96,16 +101,16 @@ class MyBuildAnimatedText extends StatelessWidget {
 }
 
 class AnimatedText extends StatelessWidget {
-  const AnimatedText({
-    Key? key,
-  }) : super(key: key);
+  const AnimatedText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AnimatedTextKit(
+      totalRepeatCount: 1,
+      repeatForever: true,
       animatedTexts: [
         TyperAnimatedText(
-          "responsive web and mobile app.",
+          "responsive web site and mobile app.",
           speed: const Duration(milliseconds: 60),
         ),
         TyperAnimatedText(
@@ -113,7 +118,7 @@ class AnimatedText extends StatelessWidget {
           speed: const Duration(milliseconds: 60),
         ),
         TyperAnimatedText(
-          "Chat app with dark and light theme.",
+          "chat app with dark and light theme.",
           speed: const Duration(milliseconds: 60),
         ),
       ],

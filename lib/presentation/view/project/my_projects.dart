@@ -17,7 +17,9 @@ class MyProjects extends StatelessWidget {
     double dSize = context.w > 1400 ? 1 : 0.7;
     double tSize = context.w > 700 ? 0.6 : 0.9;
 
-    return Column(
+    return Padding(
+          padding:  EdgeInsets.symmetric(horizontal: Responsive.isMobile(context) ? 14 : defaultPadding),
+          child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text("My projects", style: Theme.of(context).textTheme.titleLarge),
@@ -30,7 +32,7 @@ class MyProjects extends StatelessWidget {
           tablet: ProjectsGridView(childAspectRatio: tSize),
           desktop: ProjectsGridView(childAspectRatio: dSize),
         )
-      ],
+      ],),
     );
   }
 }

@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:my_portfolio/core/constants/constants.dart';
 import 'package:my_portfolio/core/extension/for_context.dart';
-import 'package:my_portfolio/core/utils/size_konfig.dart';
-import 'package:my_portfolio/data/models/education_model.dart';
+import 'package:my_portfolio/data/models/experience_model.dart';
 import 'package:my_portfolio/presentation/components/carousel_options.dart';
 import 'package:my_portfolio/presentation/components/responsiveness.dart';
 import 'package:my_portfolio/presentation/view/experience/widget/experience_card_widget.dart';
@@ -20,25 +19,31 @@ class ExperienceScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Experience", style: Theme.of(context).textTheme.titleLarge),
+        Padding(
+          padding: EdgeInsets.only(
+              left: Responsive.isMobile(context) ? 14 : defaultPadding),
+          child:
+              Text("Experience", style: Theme.of(context).textTheme.titleLarge),
+        ),
         const SizedBox(height: defaultPadding),
         SizedBox(
-          height: he(230),
+          height: Responsive.isMobile(context) ? 400 : 300,
           width: context.w,
           child: CarouselSlider.builder(
-            itemCount: demoEducationsModels.length,
+            itemCount: demoExperienceModels.length,
             itemBuilder: (_, __, pagev) {
-              var educationModel = demoEducationsModels[__];
+              var experienceModel = demoExperienceModels[__];
               return ExperienceCardWidget(
-                name: educationModel.name ?? "",
-                date: educationModel.source ?? "",
-                description: educationModel.text ?? "",
-                img: img,
+                name: experienceModel.name ?? "",
+                date: experienceModel.source ?? "",
+                description: experienceModel.text ?? "",
+                img: experienceModel.img ?? "",
               );
             },
             options: carouselOptions(viewportFraction: func(context)),
           ),
-        )
+        ),
+        const SizedBox(height: defaultPadding)
       ],
     );
   }

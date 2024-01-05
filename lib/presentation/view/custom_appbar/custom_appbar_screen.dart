@@ -22,7 +22,6 @@ class CustomAppBatScreen extends StatelessWidget
       backgroundColor: AppColors.bgColor.withOpacity(.4),
       leading: Builder(
         builder: (context) => IconButton(
-          splashRadius: 1,
           onPressed: () => Scaffold.of(context).openDrawer(),
           icon: SvgPicture.asset(AppIcons.iconMenu,
               colorFilter: const ColorFilter.mode(
@@ -30,6 +29,7 @@ class CustomAppBatScreen extends StatelessWidget
         ),
       ),
       title: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           RichText(
             textAlign: TextAlign.center,
@@ -44,6 +44,7 @@ class CustomAppBatScreen extends StatelessWidget
                         .textTheme
                         .titleMedium!
                         .copyWith(color: AppColors.primaryColor)),
+
               ],
             ),
           ),
@@ -53,5 +54,5 @@ class CustomAppBatScreen extends StatelessWidget
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(60);
+  Size get preferredSize => const Size.fromHeight(50);
 }

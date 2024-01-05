@@ -15,7 +15,7 @@ class EducationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 400,
+      width: 490,
       height: 200,
       padding: const EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:my_portfolio/core/constants/constants.dart';
-import 'package:my_portfolio/core/themes/app_colors.dart';
-import 'package:my_portfolio/core/themes/app_icons.dart';
+import 'package:my_portfolio/presentation/view/side_menu/widget/download_sv_widget.dart';
 import 'package:my_portfolio/presentation/view/side_menu/widget/social_networks.dart';
-
 import 'widget/area_info_text.dart';
 import 'widget/coding.dart';
 import 'widget/knowledges.dart';
@@ -18,52 +15,30 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
+    return const Drawer(
       child: SafeArea(
         child: Column(
           children: [
-            const MyInfo(),
+            MyInfo(),
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.all(defaultPadding),
+                padding: EdgeInsets.all(defaultPadding),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const AreaInfoText(
-                      title: "Residence",
-                      text: "Uzbekistan",
-                    ),
-                    const AreaInfoText(
-                      title: "City",
-                      text: "Tashkent",
-                    ),
-                    const AreaInfoText(
-                      title: "Age",
-                      text: "21",
-                    ),
-                    const Skills(),
-                    const SizedBox(height: defaultPadding),
-                    const Coding(),
-                    const Knowledges(),
-                    const Divider(),
-                    const SizedBox(height: defaultPadding / 2),
-                    TextButton(
-                      onPressed: () {},
-                      child: FittedBox(
-                        child: Row(
-                          children: [
-                            Text("DOWNLOAD CV",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall!
-                                    .copyWith(color: AppColors.bodyTextColor)),
-                            const SizedBox(width: defaultPadding / 2),
-                            SvgPicture.asset(AppIcons.iconDownload)
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SocialNetworks()
+                    AreaInfoText(title: "Residence", text: "Uzbekistan"),
+                    AreaInfoText(title: "City", text: "Tashkent"),
+                    AreaInfoText(title: "Age", text: "21"),
+                    Divider(),
+                    Skills(),
+                    SizedBox(height: defaultPadding),
+                    Coding(),
+                    Knowledges(),
+                    Divider(),
+                    SizedBox(height: defaultPadding / 2),
+                    DownloadSvWidget(),
+                    SocialNetworks(),
+                    SizedBox(height: defaultPadding ),
                   ],
                 ),
               ),

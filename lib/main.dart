@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/core/constants/constants.dart';
 import 'package:my_portfolio/core/themes/app_colors.dart';
 import 'package:my_portfolio/presentation/view/home/home_screen.dart';
 
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
               bodyMedium: const TextStyle(color: AppColors.bodyTextColor),
             ),
       ),
+      navigatorKey: navigatorKey,
       home: const HomeScreen(),
     );
   }

@@ -12,23 +12,29 @@ class MyInfo extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 1.23,
       child: Container(
-        color: const Color(0xFF242430),
+        color: AppColors.secondaryColor,
         child: Column(
           children: [
             const Spacer(flex: 2),
-            const CircleAvatar(
-              radius: 50,
-              backgroundImage: AssetImage(AppImages.personalInfo),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(60),
+              child: Image.asset(
+                AppImages.personalInfo,
+                height: 100,
+                width: 100,
+                fit: BoxFit.cover,
+              ),
             ),
             const Spacer(),
             Text("Asadbek Abdumajidov",
                 style: Theme.of(context).textTheme.titleSmall),
-             Text(
-              "Flutter Developer at Samuraidev.uz",
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.bodyTextColor)
-                       ),
+            Text("Flutter Middle Developer at dynamicsoft.uz",
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .copyWith(color: AppColors.bodyTextColor)),
             const Spacer(flex: 2),
           ],
         ),

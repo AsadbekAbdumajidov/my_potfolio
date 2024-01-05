@@ -12,7 +12,7 @@ class Skills extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Divider(),
+        
         Padding(
           padding: const EdgeInsets.symmetric(vertical: defaultPadding),
           child: Text(
